@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users collection - users can only read/write their own data
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Workouts collection
+    match /workouts/{workoutId} {
+      allow create: if request.auth != null;
+      allow read, update, delete: if request.auth != null && 
+        resource.data.userId == request.auth.uid;
+    }
+    
+    // Meals/Calorie logs collection
+    match /meals/{mealId} {
+      allow create: if request.auth != null;
+      allow read, update, delete: if request.auth != null && 
+        resource.data.userId == request.auth.uid;
+    }
+    
+    // Plans collection
+    match /plans/{planId} {
+      allow create: if request.auth != null;
+      allow read, update, delete: if request.auth != null && 
+        resource.data.userId == request.auth.uid;
+    }
+  }
+}

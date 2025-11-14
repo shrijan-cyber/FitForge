@@ -1,0 +1,71 @@
+========================================
+FIREBASE SETUP INSTRUCTIONS
+========================================
+
+CURRENT STATUS: Firebase API key is invalid (placeholder values)
+
+HOW TO FIX:
+-----------
+
+1. Go to: https://console.firebase.google.com/
+
+2. Click "Add project" → Name it "FitForge" → Create
+
+3. Enable Services:
+   - Build → Authentication → Get Started → Enable Email/Password + Google
+   - Build → Firestore Database → Create database → Test mode
+
+4. Get Your Config:
+   - Project Settings (gear icon)
+   - Scroll to "Your apps" section
+   - Click Web icon </>
+   - Register app
+   - COPY THE CONFIG that looks like this:
+
+   const firebaseConfig = {
+     apiKey: "AIzaSyC...",
+     authDomain: "fitforge-123.firebaseapp.com",
+     projectId: "fitforge-123",
+     storageBucket: "fitforge-123.appspot.com",
+     messagingSenderId: "123456789",
+     appId: "1:123456789:web:abc123"
+   };
+
+5. Open: D:\Project-intern\FitForge\.env.local
+
+6. Replace these lines with YOUR values:
+
+   VITE_FIREBASE_API_KEY=AIzaSyC...YOUR_KEY
+   VITE_FIREBASE_AUTH_DOMAIN=fitforge-123.firebaseapp.com
+   VITE_FIREBASE_PROJECT_ID=fitforge-123
+   VITE_FIREBASE_STORAGE_BUCKET=fitforge-123.appspot.com
+   VITE_FIREBASE_MESSAGING_SENDER_ID=123456789
+   VITE_FIREBASE_APP_ID=1:123456789:web:abc123
+
+   VITE_FUNCTIONS_URL=http://localhost:5001/fitforge-123/us-central1
+
+7. Save the file
+
+8. Restart dev server:
+   npm run dev
+
+========================================
+WHAT EACH VALUE MEANS:
+========================================
+
+apiKey         - Your Firebase Web API key (public, safe to expose)
+authDomain     - Authentication domain
+projectId      - Your Firebase project ID
+storageBucket  - Cloud Storage bucket
+messagingSenderId - Cloud Messaging sender ID
+appId          - Your web app ID
+
+========================================
+GEMINI API KEY (Already Set):
+========================================
+
+✅ VITE_GEMINI_API_KEY=AIzaSyBYjX-NgdSmu9pBWnjR2AT5-yEEMagpiSw
+
+This is already configured and working!
+
+========================================
